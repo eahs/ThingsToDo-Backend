@@ -1,6 +1,6 @@
-﻿using ADSBackend.Data;
+using ADSBackend.Data;
 using ADSBackend.Models.Identity;
-using ADSBackend.Models.ManageViewModels;
+using ADSBackend.Models.PlaceViewModels;
 using ADSBackend.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -19,10 +19,23 @@ namespace ADSBackend.Controllers
     public class PlaceController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly Services.Configuration Configuration;
 
-        public PlaceController(ApplicationDbContext context)
+        public PlaceController(ApplicationDbContext context, Services.Configuration configuration)
         {
             _context = context;
+            Configuration = configuration;
+        }
+
+        public IActionResult Index()
+        {
+            var viewModel = new PlaceViewModel
+            {
+                Name = Configuration.Get("Place Name"),
+                Location = Configuration.Get("Location Name"),
+            };
+
+            return View(viewModel);
         }
     }
 }

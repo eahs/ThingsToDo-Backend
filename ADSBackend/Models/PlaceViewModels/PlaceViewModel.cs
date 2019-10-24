@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ADSBackend.Models.PlaceViewModels
@@ -10,10 +10,10 @@ namespace ADSBackend.Models.PlaceViewModels
 
         [Required]
         [Display(Name = "Place Name")]
-        public String Name;
+        public String Name { get; set; }
 
         [Required]
         [Display(Name = "Location Name")]
-        public String Location;
+        public String Location { get; set; }
     }
 }
