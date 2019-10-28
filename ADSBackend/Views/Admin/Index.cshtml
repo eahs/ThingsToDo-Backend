@@ -1,4 +1,4 @@
-﻿@model ADSBackend.Models.HomeViewModels.HomeViewModel
+@model ADSBackend.Models.HomeViewModels.HomeViewModel
 
 @{
     ViewData["Title"] = "Dashboard";
@@ -26,8 +26,8 @@
                 </div>
                 <div class="ibox-content">
                     <p>Some places where you can do things.</p>
-                    <a href="#" class="btn btn-primary">
-                        <span class="fa fa-recycle"></span> Reduce, Reuse, and Recycle
+                    <a asp-controller="PlaceViewModels" asp-action="Index" class="btn btn-default">
+                        <span class="fa fa-map-marker"></span> Places
                     </a>
                 </div>
             </div>

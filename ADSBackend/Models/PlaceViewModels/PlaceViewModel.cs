@@ -6,7 +6,7 @@ namespace ADSBackend.Models.PlaceViewModels
     public class PlaceViewModel
     {
         [Key]
-        public int PlaceId;
+        public int PlaceId { get; set; }
 
         [Required]
         [Display(Name = "Place Name")]
