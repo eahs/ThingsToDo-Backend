@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity
 @using ADSBackend.Models.Identity
 
 @inject SignInManager<ApplicationUser> SignInManager
@@ -47,6 +47,9 @@
                     </li>
                     <li is-active-route asp-controller="Configuration">
                         <a asp-controller="Configuration" asp-action="Index"><i class="fa fa-cog"></i><span class="nav-label">Configuration</span></a>
+                    </li>
+                    <li is-active-route asp-controller="Places">
+                        <a asp-controller="PlaceViewModels" asp-action="Index"><i class="fa fa-map-marker"></i><span class="nav-label">Places</span></a>
                     </li>
                 }
             }
