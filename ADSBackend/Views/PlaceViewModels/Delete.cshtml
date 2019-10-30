@@ -1,4 +1,4 @@
-﻿@model ADSBackend.Models.PlaceViewModels.PlaceViewModel
+@model ADSBackend.Models.PlaceViewModels.PlaceViewModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -22,6 +22,24 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Activity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Activity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address)
         </dd>
     </dl>
     
