@@ -6,26 +6,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ADSBackend.Data;
-using ADSBackend.Models.PlaceViewModels;
+using ADSBackend.Models;
 
 namespace ADSBackend.Controllers
 {
-    public class PlaceViewModelsController : Controller
+    public class PlacesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public PlaceViewModelsController(ApplicationDbContext context)
+        public PlacesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: PlaceViewModels
+        // GET: Places
         public async Task<IActionResult> Index()
         {
-            return View(await _context.PlaceViewModel.ToListAsync());
+            return View(await _context.Place.ToListAsync());
         }
 
-        // GET: PlaceViewModels/Details/5
+        // GET: Places/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace ADSBackend.Controllers
                 return NotFound();
             }
 
-            var placeViewModel = await _context.PlaceViewModel
+            var place = await _context.Place
                 .FirstOrDefaultAsync(m => m.PlaceId == id);
-            if (placeViewModel == null)
+            if (place == null)
             {
                 return NotFound();
             }
 
-            return View(placeViewModel);
+            return View(place);
         }
 
-        // GET: PlaceViewModels/Create
+        // GET: Places/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: PlaceViewModels/Create
+        // POST: Places/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PlaceId,Name,Location,Activity,Description,Address")] PlaceViewModel placeViewModel)
+        public async Task<IActionResult> Create([Bind("PlaceId,Name,Location,Activity,Description,Address")] Place place)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(placeViewModel);
+                _context.Add(place);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(placeViewModel);
+            return View(place);
         }
 
-        // GET: PlaceViewModels/Edit/5
+        // GET: Places/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace ADSBackend.Controllers
                 return NotFound();
             }
 
-            var placeViewModel = await _context.PlaceViewModel.FindAsync(id);
-            if (placeViewModel == null)
+            var place = await _context.Place.FindAsync(id);
+            if (place == null)
             {
                 return NotFound();
             }
-            return View(placeViewModel);
+            return View(place);
         }
 
-        // POST: PlaceViewModels/Edit/5
+        // POST: Places/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PlaceId,Name,Location,Activity,Description,Address")] PlaceViewModel placeViewModel)
+        public async Task<IActionResult> Edit(int id, [Bind("PlaceId,Name,Location,Activity,Description,Address")] Place place)
         {
-            if (id != placeViewModel.PlaceId)
+            if (id != place.PlaceId)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace ADSBackend.Controllers
             {
                 try
                 {
-                    _context.Update(placeViewModel);
+                    _context.Update(place);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PlaceViewModelExists(placeViewModel.PlaceId))
+                    if (!PlaceExists(place.PlaceId))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace ADSBackend.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(placeViewModel);
+            return View(place);
         }
 
-        // GET: PlaceViewModels/Delete/5
+        // GET: Places/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace ADSBackend.Controllers
                 return NotFound();
             }
 
-            var placeViewModel = await _context.PlaceViewModel
+            var place = await _context.Place
                 .FirstOrDefaultAsync(m => m.PlaceId == id);
-            if (placeViewModel == null)
+            if (place == null)
             {
                 return NotFound();
             }
 
-            return View(placeViewModel);
+            return View(place);
         }
 
-        // POST: PlaceViewModels/Delete/5
+        // POST: Places/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var placeViewModel = await _context.PlaceViewModel.FindAsync(id);
-            _context.PlaceViewModel.Remove(placeViewModel);
+            var placeViewModel = await _context.Place.FindAsync(id);
+            _context.Place.Remove(placeViewModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PlaceViewModelExists(int id)
+        private bool PlaceExists(int id)
         {
-            return _context.PlaceViewModel.Any(e => e.PlaceId == id);
+            return _context.Place.Any(e => e.PlaceId == id);
         }
     }
 }

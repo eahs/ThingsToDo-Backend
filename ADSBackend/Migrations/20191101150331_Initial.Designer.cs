@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ADSBackend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191030144019_Activity")]
-    partial class Activity
+    [Migration("20191101150331_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -116,7 +116,7 @@ namespace ADSBackend.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("ADSBackend.Models.PlaceViewModels.PlaceViewModel", b =>
+            modelBuilder.Entity("ADSBackend.Models.Place", b =>
                 {
                     b.Property<int>("PlaceId")
                         .ValueGeneratedOnAdd()
@@ -138,7 +138,7 @@ namespace ADSBackend.Migrations
 
                     b.HasKey("PlaceId");
 
-                    b.ToTable("PlaceViewModel");
+                    b.ToTable("Place");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
