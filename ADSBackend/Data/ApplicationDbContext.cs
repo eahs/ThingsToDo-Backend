@@ -2,7 +2,6 @@
 using ADSBackend.Models.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ADSBackend.Models.PlaceViewModels;
 
 namespace ADSBackend.Data
 {
@@ -23,6 +22,6 @@ namespace ADSBackend.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         }
 
-        public DbSet<ADSBackend.Models.PlaceViewModels.PlaceViewModel> PlaceViewModel { get; set; }
+        public DbSet<ADSBackend.Models.Place> Place { get; set; }
     }
 }

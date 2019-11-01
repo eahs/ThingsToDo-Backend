@@ -64,6 +64,23 @@ namespace ADSBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Place",
+                columns: table => new
+                {
+                    PlaceId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: false),
+                    Location = table.Column<string>(nullable: false),
+                    Activity = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Place", x => x.PlaceId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -228,6 +245,9 @@ namespace ADSBackend.Migrations
 
             migrationBuilder.DropTable(
                 name: "ConfigurationItem");
+
+            migrationBuilder.DropTable(
+                name: "Place");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

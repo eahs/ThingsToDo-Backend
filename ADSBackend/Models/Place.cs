@@ -1,30 +1,29 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ADSBackend.Models.PlaceViewModels
+namespace ADSBackend.Models
 {
-    public class PlaceViewModel
+    public class Place
     {
         [Key]
         public int PlaceId { get; set; }
 
         [Required]
         [Display(Name = "Place Name")]
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [Display(Name = "Location Name")]
-        public String Location { get; set; }
+        public string Location { get; set; }
 
         [Required]
         [Display(Name = "Activity Name")]
-        public String Activity { get; set; }
+        public string Activity { get; set; }
 
         [Display(Name = "Activity Description")]
-        public String Description { get; set; }
+        public string Description { get; set; }
 
         [Required]
         [Display(Name = "Location Address")]
-        public String Address { get; set; }
+        public string Address { get; set; }
     }
 }

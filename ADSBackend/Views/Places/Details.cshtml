@@ -1,13 +1,13 @@
-@model ADSBackend.Models.PlaceViewModels.PlaceViewModel
+@model ADSBackend.Models.Place
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Details";
 }
 
 <div class="ibox">
-    <div class="ibox-content">
-        <h2>Delete</h2>
-        <h3>Are you sure you want to delete this?</h3>
+    <div class="ibox-title">
+        <h2>Details</h2>
+        <h4>Places</h4>
     </div>
     <div class="ibox-content">
         <dl class="dl-horizontal">
@@ -42,16 +42,9 @@
                 @Html.DisplayFor(model => model.Address)
             </dd>
         </dl>
-
-        <form asp-action="Delete">
-            <input type="hidden" asp-for="PlaceId" />
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
-            <a asp-action="Index" class="btn btn-default">Back to List</a>
-        </form>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.PlaceId">Edit</a> |
+            <a asp-action="Index">Back to List</a>
+        </div>
     </div>
 </div>
-
-
-
-    
-
