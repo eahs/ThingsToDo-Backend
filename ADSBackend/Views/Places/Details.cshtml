@@ -41,6 +41,12 @@
             <dd>
                 @Html.DisplayFor(model => model.Address)
             </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Coordinates)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Coordinates)
+            </dd>
         </dl>
         <div>
             <a asp-action="Edit" asp-route-id="@Model.PlaceId">Edit</a> |

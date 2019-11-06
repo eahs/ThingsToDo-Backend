@@ -25,5 +25,9 @@ namespace ADSBackend.Models
         [Required]
         [Display(Name = "Location Address")]
         public string Address { get; set; }
+
+        [Required]
+        [Display(Name = "Location Coordinates")]
+        public string Coordinates { get; set; }
     }
 }
