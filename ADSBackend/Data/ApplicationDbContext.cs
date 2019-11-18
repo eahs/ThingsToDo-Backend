@@ -23,5 +23,6 @@ namespace ADSBackend.Data
         }
 
         public DbSet<ADSBackend.Models.Place> Place { get; set; }
+        public DbSet<ADSBackend.Models.PlaceType> PlaceType { get; set; }
     }
 }

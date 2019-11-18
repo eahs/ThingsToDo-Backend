@@ -7,6 +7,9 @@ namespace ADSBackend.Models
         [Key]
         public int PlaceId { get; set; }
 
+        public int PlaceTypeId { get; set; }
+        public PlaceType PlaceType { get; set; }
+
         [Required]
         [Display(Name = "Place Name")]
         public string Name { get; set; }
