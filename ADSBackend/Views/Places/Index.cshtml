@@ -17,6 +17,9 @@
                 <thead>
                     <tr>
                         <th>
+                            Type
+                        </th>
+                        <th>
                             @Html.DisplayNameFor(model => model.Name)
                         </th>
                         <th>
@@ -34,6 +37,9 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Coordinates)
                         </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Image)
+                        </th>
                         <th></th>
                     </tr>
                 </thead>
@@ -41,6 +47,9 @@
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PlaceType.Category)
+                            </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Name)
                             </td>
@@ -58,6 +67,9 @@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Coordinates)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Image)
                             </td>
                             <td>
                                 <a asp-action="Edit" asp-route-id="@item.PlaceId">Edit</a> |

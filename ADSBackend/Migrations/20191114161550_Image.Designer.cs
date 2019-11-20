@@ -4,14 +4,16 @@ using ADSBackend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ADSBackend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191114161550_Image")]
+    partial class Image
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,26 +141,9 @@ namespace ADSBackend.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<int>("PlaceTypeId");
-
                     b.HasKey("PlaceId");
 
-                    b.HasIndex("PlaceTypeId");
-
                     b.ToTable("Place");
-                });
-
-            modelBuilder.Entity("ADSBackend.Models.PlaceType", b =>
-                {
-                    b.Property<int>("PlaceTypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Category");
-
-                    b.HasKey("PlaceTypeId");
-
-                    b.ToTable("PlaceType");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -242,14 +227,6 @@ namespace ADSBackend.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("ADSBackend.Models.Place", b =>
-                {
-                    b.HasOne("ADSBackend.Models.PlaceType", "PlaceType")
-                        .WithMany()
-                        .HasForeignKey("PlaceTypeId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

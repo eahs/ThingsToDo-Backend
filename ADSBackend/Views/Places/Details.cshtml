@@ -12,6 +12,12 @@
     <div class="ibox-content">
         <dl class="dl-horizontal">
             <dt>
+                Type
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PlaceType)
+            </dd>
+            <dt>
                 @Html.DisplayNameFor(model => model.Name)
             </dt>
             <dd>
@@ -47,10 +53,16 @@
             <dd>
                 @Html.DisplayFor(model => model.Coordinates)
             </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Image)
+            </dd>
         </dl>
         <div>
-            <a asp-action="Edit" asp-route-id="@Model.PlaceId">Edit</a> |
-            <a asp-action="Index">Back to List</a>
+            <a asp-action="Edit" asp-route-id="@Model.PlaceId" class="btn btn-primary">Edit</a> |
+            <a asp-action="Index" class="btn btn-default">Back to List</a>
         </div>
     </div>
 </div>

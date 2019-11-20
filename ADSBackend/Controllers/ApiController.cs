@@ -25,21 +25,6 @@ namespace ADSBackend.Controllers
             _context = context;
         }
 
-        // GET: api/News
-        [HttpGet("News")]
-        public async Task<List<NewsFeedItem>> GetNewsFeed()
-        {
-            var newsUrl = new Uri("https://www.eastonsd.org/apps/news/news_rss.jsp");
-
-            string sourceUrl = newsUrl.GetLeftPart(UriPartial.Authority);
-            string endpoint = newsUrl.PathAndQuery;
-
-            Task<List<NewsFeedItem>> fetchNewsFromSource() => Util.RSS.GetNewsFeed(sourceUrl, endpoint);
-
-            var feedItems = await _cache.GetAsync("RSS", fetchNewsFromSource, TimeSpan.FromMinutes(5));
-            return feedItems.OrderByDescending(x => x.PublishDate).ToList();
-        }
-
         // GET: api/Config
         [HttpGet("Config")]
         public ConfigResponse GetConfig()
@@ -50,8 +35,13 @@ namespace ADSBackend.Controllers
 
         // GET: api/Places
         [HttpGet("Places")]
-        public async Task<List<Place>> GetPlaces()
+        public async Task<List<Place>> GetPlaces(string query = "", int placeType = -1)
         {
+            if (placeType != -1)
+                return await _context.Place.Where(p => p.PlaceTypeId == placeType)
+                                           .OrderBy(x => x.PlaceId)
+                                           .ToListAsync();
+
             return await _context.Place.OrderBy(x => x.PlaceId).ToListAsync();
         }
     }

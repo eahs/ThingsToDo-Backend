@@ -7,6 +7,9 @@ namespace ADSBackend.Models
         [Key]
         public int PlaceId { get; set; }
 
+        public int PlaceTypeId { get; set; }
+        public PlaceType PlaceType { get; set; }
+
         [Required]
         [Display(Name = "Place Name")]
         public string Name { get; set; }
@@ -29,5 +32,8 @@ namespace ADSBackend.Models
         [Required]
         [Display(Name = "Location Coordinates")]
         public string Coordinates { get; set; }
+
+        [Display(Name = "Image URL")]
+        public string Image { get; set; }
     }
 }

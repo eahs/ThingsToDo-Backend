@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,22 +10,22 @@ using ADSBackend.Models;
 
 namespace ADSBackend.Controllers
 {
-    public class PlacesController : Controller
+    public class PlaceTypesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public PlacesController(ApplicationDbContext context)
+        public PlaceTypesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Places
+        // GET: PlaceTypes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Place.Include(p => p.PlaceType).ToListAsync());
+            return View(await _context.PlaceType.ToListAsync());
         }
 
-        // GET: Places/Details/5
+        // GET: PlaceTypes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,43 +33,39 @@ namespace ADSBackend.Controllers
                 return NotFound();
             }
 
-            var place = await _context.Place
-                .FirstOrDefaultAsync(m => m.PlaceId == id);
-            if (place == null)
+            var placeType = await _context.PlaceType
+                .FirstOrDefaultAsync(m => m.PlaceTypeId == id);
+            if (placeType == null)
             {
                 return NotFound();
             }
 
-            return View(place);
+            return View(placeType);
         }
 
-        // GET: Places/Create
-        public async Task<IActionResult> Create()
+        // GET: PlaceTypes/Create
+        public IActionResult Create()
         {
-            var placeTypes = await _context.PlaceType.ToListAsync();
-
-            ViewBag.PlaceTypes = new SelectList(placeTypes, "PlaceTypeId", "Category");
-
             return View();
         }
 
-        // POST: Places/Create
+        // POST: PlaceTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PlaceId,Name,Location,Activity,Description,Address,Coordinates,Image,PlaceTypeId")] Place place)
+        public async Task<IActionResult> Create([Bind("PlaceTypeId,Category")] PlaceType placeType)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(place);
+                _context.Add(placeType);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(place);
+            return View(placeType);
         }
 
-        // GET: Places/Edit/5
+        // GET: PlaceTypes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,22 +73,22 @@ namespace ADSBackend.Controllers
                 return NotFound();
             }
 
-            var place = await _context.Place.FindAsync(id);
-            if (place == null)
+            var placeType = await _context.PlaceType.FindAsync(id);
+            if (placeType == null)
             {
                 return NotFound();
             }
-            return View(place);
+            return View(placeType);
         }
 
-        // POST: Places/Edit/5
+        // POST: PlaceTypes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PlaceId,Name,Location,Activity,Description,Address,Coordinates,Image,PlaceTypeId")] Place place)
+        public async Task<IActionResult> Edit(int id, [Bind("PlaceTypeId,Category")] PlaceType placeType)
         {
-            if (id != place.PlaceId)
+            if (id != placeType.PlaceTypeId)
             {
                 return NotFound();
             }
@@ -101,12 +97,12 @@ namespace ADSBackend.Controllers
             {
                 try
                 {
-                    _context.Update(place);
+                    _context.Update(placeType);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PlaceExists(place.PlaceId))
+                    if (!PlaceTypeExists(placeType.PlaceTypeId))
                     {
                         return NotFound();
                     }
@@ -117,10 +113,10 @@ namespace ADSBackend.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(place);
+            return View(placeType);
         }
 
-        // GET: Places/Delete/5
+        // GET: PlaceTypes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -128,30 +124,30 @@ namespace ADSBackend.Controllers
                 return NotFound();
             }
 
-            var place = await _context.Place
-                .FirstOrDefaultAsync(m => m.PlaceId == id);
-            if (place == null)
+            var placeType = await _context.PlaceType
+                .FirstOrDefaultAsync(m => m.PlaceTypeId == id);
+            if (placeType == null)
             {
                 return NotFound();
             }
 
-            return View(place);
+            return View(placeType);
         }
 
-        // POST: Places/Delete/5
+        // POST: PlaceTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var placeViewModel = await _context.Place.FindAsync(id);
-            _context.Place.Remove(placeViewModel);
+            var placeType = await _context.PlaceType.FindAsync(id);
+            _context.PlaceType.Remove(placeType);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PlaceExists(int id)
+        private bool PlaceTypeExists(int id)
         {
-            return _context.Place.Any(e => e.PlaceId == id);
+            return _context.PlaceType.Any(e => e.PlaceTypeId == id);
         }
     }
 }
