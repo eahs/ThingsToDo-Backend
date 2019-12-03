@@ -1,0 +1,29 @@
+# Lehigh Valley Explorer Backend
+Displays exciting things to do all around the Lehigh Valley!
+
+## Open Project
+- Visit localhost:55286
+- Log in with username 'admin' and password 'Password123!'
+
+## API References
+- /api/Places (generates information about each place)
+  - PlaceId
+  - PlaceTypeId
+  - PlaceType: Type of activity involved (trail, leisure, etc.)
+  - Name: The name of the place
+  - Location: The place's city and state
+  - Activity: The name of the activity
+  - Description: A description of the activity (can be null)
+  - Address: The place's street address
+  - Coordinates: The place's latitude and longitude
+  - Image URL: A URL for an image of the place (can be null)
+- /Places (shows a database of current places)
+- /Places/Create (allows new places to be created)
+- /Places/Edit (allows current places to be changed)
+- /Places/Delete (allows places to be deleted)
+- /Places/Details (shows all the details of a place)
+- /PlaceTypes (shows a list of all current place categories)
+- /PlaceTypes/Create (allows new place categories to be created)
+- /PlaceTypes/Edit (allows current place types to be changed)
+- /PlaceTypes/Delete (allows place types to be deleted)
+- /PlaceTypes/Details (shows the details of a place type)
