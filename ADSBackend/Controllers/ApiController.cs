@@ -35,10 +35,10 @@ namespace ADSBackend.Controllers
 
         // GET: api/Places
         [HttpGet("Places")]
-        public async Task<List<Place>> GetPlaces(string query = "", int placeType = -1)
+        public async Task<List<Place>> GetPlaces(int placeTypeId = -1)
         {
-            if (placeType != -1)
-                return await _context.Place.Where(p => p.PlaceTypeId == placeType)
+            if (placeTypeId != -1)
+                return await _context.Place.Where(p => p.PlaceTypeId == placeTypeId)
                                            .OrderBy(x => x.PlaceId)
                                            .ToListAsync();
 
