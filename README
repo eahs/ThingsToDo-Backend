@@ -9,7 +9,10 @@ Displays exciting things to do all around the Lehigh Valley!
 - /api/Places (generates information about each place)
   - PlaceId
   - PlaceTypeId
-  - PlaceType: Type of activity involved (trail, leisure, etc.)
+  - PlaceType
+    - PlaceTypeId
+    - Category: Type of activity involved (trail, leisure, etc.)
+    - Places: List of places that belong to that place type (currently returns null)
   - Name: The name of the place
   - Location: The place's city and state
   - Activity: The name of the activity
