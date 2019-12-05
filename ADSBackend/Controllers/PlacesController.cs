@@ -34,6 +34,7 @@ namespace ADSBackend.Controllers
             }
 
             var place = await _context.Place
+                .Include(p => p.PlaceType)
                 .FirstOrDefaultAsync(m => m.PlaceId == id);
             if (place == null)
             {
@@ -78,6 +79,10 @@ namespace ADSBackend.Controllers
             }
 
             var place = await _context.Place.FindAsync(id);
+            var placeTypes = await _context.PlaceType.ToListAsync();
+
+            ViewBag.PlaceTypes = new SelectList(placeTypes, "PlaceTypeId", "Category");
+
             if (place == null)
             {
                 return NotFound();
@@ -129,6 +134,7 @@ namespace ADSBackend.Controllers
             }
 
             var place = await _context.Place
+                .Include(p => p.PlaceType)
                 .FirstOrDefaultAsync(m => m.PlaceId == id);
             if (place == null)
             {

@@ -33,16 +33,33 @@ namespace ADSBackend.Controllers
             return new ConfigResponse();
         }
 
+        // GET: api/Place
+        [HttpGet("Place")]
+        public async Task<Place> GetPlace(int id)
+        {
+
+            var place = await _context.Place.Where(p => p.PlaceTypeId == id)
+                                            .Include(p => p.PlaceType)
+                                            .OrderBy(x => x.PlaceId)
+                                            .FirstOrDefaultAsync();
+
+            return place;
+        }
+
         // GET: api/Places
         [HttpGet("Places")]
-        public async Task<List<Place>> GetPlaces(int placeTypeId = -1)
-        {
-            if (placeTypeId != -1)
-                return await _context.Place.Where(p => p.PlaceTypeId == placeTypeId)
-                                           .OrderBy(x => x.PlaceId)
-                                           .ToListAsync();
+        public async Task<List<Place>> GetPlaces()
+        {            
+            var places = await _context.Place.Include(p => p.PlaceType)
+                                            .OrderBy(x => x.PlaceId)
+                                            .ToListAsync();
 
-            return await _context.Place.OrderBy(x => x.PlaceId).ToListAsync();
+            foreach (var place in places)
+            {
+                place.PlaceType.Places = null;
+            }
+
+            return places;
         }
     }
 }
