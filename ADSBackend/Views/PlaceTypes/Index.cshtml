@@ -4,32 +4,44 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<div class="ibox">
+    <div class="ibox-title">
+        <h2>Index</h2>
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Create New</a>
+        </p>
+    </div>
+    <div class="ibox-content">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Category)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Category)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.PlaceTypeId">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.PlaceTypeId">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.PlaceTypeId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PlaceTypeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PlaceTypeId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PlaceTypeId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+
+
