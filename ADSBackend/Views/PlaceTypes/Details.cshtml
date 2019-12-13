@@ -4,21 +4,27 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<div class="ibox">
+    <div class="ibox-content">
+        <h2>Details</h2>
+        <h4>PlaceType</h4>
+    </div>
+    <div class="ibox-content">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Category)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Category)
+            </dd>
+        </dl>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.PlaceTypeId" class="btn btn-primary">Edit</a> |
+            <a asp-action="Index" class="btn btn-default">Back to List</a>
+        </div>
+    </div>
+</div>
 
-<div>
-    <h4>PlaceType</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Category)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.PlaceTypeId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
+
