@@ -1,4 +1,4 @@
-﻿@model ADSBackend.Models.PlaceType
+@model ADSBackend.Models.PlaceType
 
 @{
     ViewData["Title"] = "Details";
@@ -14,8 +14,14 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Category)
             </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Places)
+            </dt>
             <dd>
                 @Html.DisplayFor(model => model.Category)
+            </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Places)
             </dd>
         </dl>
         <div>

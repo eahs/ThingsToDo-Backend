@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -54,7 +54,7 @@ namespace ADSBackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PlaceTypeId,Category")] PlaceType placeType)
+        public async Task<IActionResult> Create([Bind("PlaceTypeId,Category,Places")] PlaceType placeType)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace ADSBackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PlaceTypeId,Category")] PlaceType placeType)
+        public async Task<IActionResult> Edit(int id, [Bind("PlaceTypeId,Category,Places")] PlaceType placeType)
         {
             if (id != placeType.PlaceTypeId)
             {

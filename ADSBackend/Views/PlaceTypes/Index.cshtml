@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ADSBackend.Models.PlaceType>
+@model IEnumerable<ADSBackend.Models.PlaceType>
 
 @{
     ViewData["Title"] = "Index";
@@ -19,6 +19,9 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Category)
                         </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Places)
+                        </th>
                         <th></th>
                     </tr>
                 </thead>
@@ -28,6 +31,9 @@
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Category)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Places)
                             </td>
                             <td>
                                 <a asp-action="Edit" asp-route-id="@item.PlaceTypeId">Edit</a> |
