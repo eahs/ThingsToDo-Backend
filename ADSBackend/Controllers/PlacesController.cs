@@ -61,7 +61,7 @@ namespace ADSBackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PlaceId,PlaceTypeId,Name,Location,Activity,Description,Address,Coordinates,Image")] Place place)
+        public async Task<IActionResult> Create([Bind("PlaceId,PlaceTypeId,Name,Location,Activity,Description,Address,Hours,Cost,Coordinates,Image")] Place place)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace ADSBackend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PlaceId,PlaceTypeId,Name,Location,Activity,Description,Address,Coordinates,Image")] Place place)
+        public async Task<IActionResult> Edit(int id, [Bind("PlaceId,PlaceTypeId,Name,Location,Activity,Description,Address,Hours,Cost,Coordinates,Image")] Place place)
         {
             if (id != place.PlaceId)
             {

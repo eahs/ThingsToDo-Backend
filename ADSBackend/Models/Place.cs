@@ -29,6 +29,12 @@ namespace ADSBackend.Models
         [Display(Name = "Location Address")]
         public string Address { get; set; }
 
+        [Display(Name = "Hours of Operation")]
+        public string Hours { get; set; }
+
+        [Display(Name = "Activity Cost")]
+        public string Cost { get; set; }
+
         [Required]
         [Display(Name = "Location Coordinates")]
         public string Coordinates { get; set; }
