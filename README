@@ -13,13 +13,16 @@ Displays exciting things to do all around the Lehigh Valley!
     - PlaceTypeId
     - Category: Type of activity involved (trail, leisure, etc.)
     - Places: List of places that belong to that place type (currently returns null)
-  - Name: The name of the place
-  - Location: The place's city and state
+  - Location: The name of the location
   - Activity: The name of the activity
   - Description: A description of the activity (can be null)
   - Address: The place's street address
-  - Coordinates: The place's latitude and longitude
-  - Image URL: A URL for an image of the place (can be null)
+  - Hours: The place's hours of operation (can be null)
+  - Cost: How much it costs to participate in the activity (can be null)
+  - Latitude: The place's latitude coordinate
+  - Longitude: The place's longitude coordinate
+  - URL: A URL link for the place's website (can be null)
+  - Image: A URL for an image of the place (can be null)
 - /Places (shows a database of current places)
 - /Places/Create (allows new places to be created)
 - /Places/Edit (allows current places to be changed)
