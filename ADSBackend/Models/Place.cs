@@ -11,10 +11,6 @@ namespace ADSBackend.Models
         public PlaceType PlaceType { get; set; }
 
         [Required]
-        [Display(Name = "Place Name")]
-        public string Name { get; set; }
-
-        [Required]
         [Display(Name = "Location Name")]
         public string Location { get; set; }
 
@@ -42,6 +38,9 @@ namespace ADSBackend.Models
         [Required]
         [Display(Name = "Location Longitude")]
         public string Longitude { get; set; }
+
+        [Display(Name = "Location URL")]
+        public string URL { get; set; }
 
         [Display(Name = "Image URL")]
         public string Image { get; set; }
