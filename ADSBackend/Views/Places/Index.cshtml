@@ -35,6 +35,12 @@
                             @Html.DisplayNameFor(model => model.Address)
                         </th>
                         <th>
+                            @Html.DisplayNameFor(model => model.Hours)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Cost)
+                        </th>
+                        <th>
                             @Html.DisplayNameFor(model => model.Coordinates)
                         </th>
                         <th>
@@ -46,37 +52,43 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PlaceType.Category)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Location)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Activity)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Description)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Address)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Coordinates)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Image)
-                            </td>
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.PlaceId">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.PlaceId">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.PlaceId">Delete</a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PlaceType.Category)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Location)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Activity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Hours)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cost)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Coordinates)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Image)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.PlaceId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.PlaceId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.PlaceId">Delete</a>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>
