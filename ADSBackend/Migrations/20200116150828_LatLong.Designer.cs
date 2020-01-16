@@ -4,14 +4,16 @@ using ADSBackend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ADSBackend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200116150828_LatLong")]
+    partial class LatLong
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,14 +136,12 @@ namespace ADSBackend.Migrations
 
                     b.Property<string>("Image");
 
-                    b.Property<string>("Latitude")
-                        .IsRequired();
+                    b.Property<int>("Latitude");
 
                     b.Property<string>("Location")
                         .IsRequired();
 
-                    b.Property<string>("Longitude")
-                        .IsRequired();
+                    b.Property<int>("Longitude");
 
                     b.Property<string>("Name")
                         .IsRequired();

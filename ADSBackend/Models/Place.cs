@@ -36,8 +36,12 @@ namespace ADSBackend.Models
         public string Cost { get; set; }
 
         [Required]
-        [Display(Name = "Location Coordinates")]
-        public string Coordinates { get; set; }
+        [Display(Name = "Location Latitude")]
+        public string Latitude { get; set; }
+
+        [Required]
+        [Display(Name = "Location Longitude")]
+        public string Longitude { get; set; }
 
         [Display(Name = "Image URL")]
         public string Image { get; set; }
