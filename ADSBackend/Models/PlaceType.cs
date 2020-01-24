@@ -11,9 +11,10 @@ namespace ADSBackend.Models
         [Key]
         public int PlaceTypeId { get; set; }
 
-        [Display(Name="Place Category")]
+        [Display(Name = "Place Category")]
         public string Category { get; set; }
 
+        [Display(Name = "Associated Places")]
         public List<Place> Places { get; set; }
     }
 }
