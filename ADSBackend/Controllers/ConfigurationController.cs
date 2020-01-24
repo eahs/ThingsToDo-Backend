@@ -1,8 +1,6 @@
-﻿using ADSBackend.Data;
-using ADSBackend.Models.ConfigurationViewModels;
+﻿using ADSBackend.Models.ConfigurationViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ADSBackend.Controllers
@@ -10,12 +8,10 @@ namespace ADSBackend.Controllers
     [Authorize(Roles = "Admin")]
     public class ConfigurationController : Controller
     {
-        private readonly ApplicationDbContext _context;
         private readonly Services.Configuration Configuration;
 
-        public ConfigurationController(ApplicationDbContext context, Services.Configuration configuration)
+        public ConfigurationController(Services.Configuration configuration)
         {
-            _context = context;
             Configuration = configuration;
         }
 

@@ -1,5 +1,3 @@
-using System;
-
 namespace ADSBackend.Models
 {
     public class ErrorViewModel
