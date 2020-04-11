@@ -56,5 +56,14 @@ namespace ADSBackend.Controllers
 
             return places;
         }
+
+        // GET: api/Places/Type
+        [HttpGet("Type")]
+        public async Task<Type> GetPlaceTypes()
+        {
+            var placeTypes = await _context.Place
+
+            return placeTypes;
+        }
     }
 }
