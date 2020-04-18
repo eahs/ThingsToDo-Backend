@@ -58,12 +58,102 @@ namespace ADSBackend.Controllers
         }
 
         // GET: api/Places/Type
-        [HttpGet("Type")]
-        public async Task<Type> GetPlaceTypes()
+        [HttpGet("PlaceType")]
+        public async Task<List<Place>> GetPlaceTypes()
         {
-            var placeTypes = await _context.Place
+            var placeTypes = await _context.Place.PlaceType
+                                                .OrderBy(x => x.PlaceId)
+                                                .ToListAsync();
 
             return placeTypes;
+        }
+
+        // GET: api/Places/LocationName
+        [HttpGet("Location")]
+        public async Task<List<Place>> GetLocations()
+        {
+            var locations = await _context.Place.Location
+                                                .OrderBy(x => x.PlaceId)
+                                                .ToListAsync();
+
+            return locations;
+        }
+
+        // GET: api/Places/ActivityName
+        [HttpGet("Activity")]
+        public async Task<List<Place>> GetActivities()
+        {
+            var activities = await _context.Place.Activity
+                                                .OrderBy(x => x.PlaceId)
+                                                .ToListAsync();
+
+            return activities;
+        }
+
+        // GET: api/Places/ActivityDescription
+        [HttpGet("Description")]
+        public async Task<List<Place>> GetDescriptions()
+        {
+            var descriptions = await _context.Place.Description
+                                                .OrderBy(x => x.PlaceId)
+                                                .ToListAsync();
+
+            return descriptions;
+        }
+
+        // GET: api/Places/LocationAddress
+        [HttpGet("Address")]
+        public async Task<List<Place>> GetAddresses()
+        {
+            var addresses = await _context.Place.Address
+                                                .OrderBy(x => x.PlaceId)
+                                                .ToListAsync();
+
+            return placeTypes;
+        }
+
+        // GET: api/Places/HoursofOperation
+        [HttpGet("Hours")]
+        public async Task<List<Place>> GetHours()
+        {
+            var hours = await _context.Place.Hours
+                                                .OrderBy(x => x.PlaceId)
+                                                .ToListAsync();
+
+            return hours;
+        }
+
+        // GET: api/Places/ActivityCost
+        [HttpGet("Cost")]
+        public async Task<List<Place>> GetCosts()
+        {
+            var costs = await _context.Place.Cost
+                                                .OrderBy(x => x.PlaceId)
+                                                .ToListAsync();
+
+            return costs;
+        }
+
+        // GET: api/Places/LocationLatitude
+        [HttpGet("Latitude")]
+        public async Task<List<Place>> GetLatitudes()
+        {
+            var latitudes = await _context.Place.Latitude
+                                                .OrderBy(x => x.PlaceId)
+                                                .ToListAsync();
+
+            return latitudes;
+        }
+
+        // GET: api/Places/LocationLongitude
+        [HttpGet("Longitude")]
+        public async Task<List<Place>> GetLongitudes()
+        {
+            var longitudes = await _context.Place.Longitude
+                                                .OrderBy(x => x.PlaceId)
+                                                .ToListAsync();
+
+            return longitudes;
         }
     }
 }
