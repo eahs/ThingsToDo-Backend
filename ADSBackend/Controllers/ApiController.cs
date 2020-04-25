@@ -155,5 +155,27 @@ namespace ADSBackend.Controllers
 
             return longitudes;
         }
+
+        // GET: api/Places/LocationURL
+        [HttpGet("Location URL")]
+        public async Task<List<Place>> GetLocationURLs()
+        {
+            var locationURLs = await _context.Place.LocationURL
+                                                .OrderBy(x => x.PlaceId)
+                                                .ToListAsync();
+
+            return locationURLs;
+        }
+
+        // GET: api/Places/ImageURL
+        [HttpGet("Image URL")]
+        public async Task<List<Place>> GetImageURLs()
+        {
+            var imageURLs = await _context.Place.ImageURL
+                                                .OrderBy(x => x.PlaceId)
+                                                .ToListAsync();
+
+            return imageURLs;
+        }
     }
 }
