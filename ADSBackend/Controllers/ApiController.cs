@@ -61,7 +61,7 @@ namespace ADSBackend.Controllers
         [HttpGet("PlaceType")]
         public async Task<List<Place>> GetPlaceTypes()
         {
-            var placeTypes = await _context.Place.PlaceType
+            var placeTypes = await _context.Place.Include(p => p.PlaceType)
                                                 .OrderBy(x => x.PlaceId)
                                                 .ToListAsync();
 
@@ -72,7 +72,7 @@ namespace ADSBackend.Controllers
         [HttpGet("Location")]
         public async Task<List<Place>> GetLocations()
         {
-            var locations = await _context.Place.Location
+            var locations = await _context.Place.Include(p => p.Location)
                                                 .OrderBy(x => x.PlaceId)
                                                 .ToListAsync();
 
@@ -83,7 +83,7 @@ namespace ADSBackend.Controllers
         [HttpGet("Activity")]
         public async Task<List<Place>> GetActivities()
         {
-            var activities = await _context.Place.Activity
+            var activities = await _context.Place.Include(p => p.Activity)
                                                 .OrderBy(x => x.PlaceId)
                                                 .ToListAsync();
 
@@ -94,7 +94,7 @@ namespace ADSBackend.Controllers
         [HttpGet("Description")]
         public async Task<List<Place>> GetDescriptions()
         {
-            var descriptions = await _context.Place.Description
+            var descriptions = await _context.Place.Include(p => p.Description)
                                                 .OrderBy(x => x.PlaceId)
                                                 .ToListAsync();
 
@@ -105,18 +105,18 @@ namespace ADSBackend.Controllers
         [HttpGet("Address")]
         public async Task<List<Place>> GetAddresses()
         {
-            var addresses = await _context.Place.Address
+            var addresses = await _context.Place.Include(p => p.Address)
                                                 .OrderBy(x => x.PlaceId)
                                                 .ToListAsync();
 
-            return placeTypes;
+            return addresses;
         }
 
         // GET: api/Places/HoursofOperation
         [HttpGet("Hours")]
         public async Task<List<Place>> GetHours()
         {
-            var hours = await _context.Place.Hours
+            var hours = await _context.Place.Include(p => p.Hours)
                                                 .OrderBy(x => x.PlaceId)
                                                 .ToListAsync();
 
@@ -127,7 +127,7 @@ namespace ADSBackend.Controllers
         [HttpGet("Cost")]
         public async Task<List<Place>> GetCosts()
         {
-            var costs = await _context.Place.Cost
+            var costs = await _context.Place.Include(p => p.Cost)
                                                 .OrderBy(x => x.PlaceId)
                                                 .ToListAsync();
 
@@ -138,7 +138,7 @@ namespace ADSBackend.Controllers
         [HttpGet("Latitude")]
         public async Task<List<Place>> GetLatitudes()
         {
-            var latitudes = await _context.Place.Latitude
+            var latitudes = await _context.Place.Include(p => p.Latitude)
                                                 .OrderBy(x => x.PlaceId)
                                                 .ToListAsync();
 
@@ -149,7 +149,7 @@ namespace ADSBackend.Controllers
         [HttpGet("Longitude")]
         public async Task<List<Place>> GetLongitudes()
         {
-            var longitudes = await _context.Place.Longitude
+            var longitudes = await _context.Place.Include(p => p.Longitude)
                                                 .OrderBy(x => x.PlaceId)
                                                 .ToListAsync();
 
@@ -160,7 +160,7 @@ namespace ADSBackend.Controllers
         [HttpGet("Location URL")]
         public async Task<List<Place>> GetLocationURLs()
         {
-            var locationURLs = await _context.Place.LocationURL
+            var locationURLs = await _context.Place.Include(p => p.URL)
                                                 .OrderBy(x => x.PlaceId)
                                                 .ToListAsync();
 
@@ -171,7 +171,7 @@ namespace ADSBackend.Controllers
         [HttpGet("Image URL")]
         public async Task<List<Place>> GetImageURLs()
         {
-            var imageURLs = await _context.Place.ImageURL
+            var imageURLs = await _context.Place.Include(p => p.Image)
                                                 .OrderBy(x => x.PlaceId)
                                                 .ToListAsync();
 
