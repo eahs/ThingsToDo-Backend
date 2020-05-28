@@ -57,8 +57,8 @@ namespace ADSBackend.Controllers
             return places;
         }
 
-        // GET: api/PlaceType
-        [HttpGet("PlaceType")]
+        // GET: api/PlaceTypes
+        [HttpGet("PlaceTypes")]
         public async Task<List<Place>> GetPlaceTypes()
         {
             var placeTypes = await _context.Place.Include(p => p.PlaceType)
@@ -68,8 +68,8 @@ namespace ADSBackend.Controllers
             return placeTypes;
         }
 
-        // GET: api/LocationName
-        [HttpGet("Location")]
+        // GET: api/LocationNames
+        [HttpGet("Locations")]
         public async Task<List<Place>> GetLocations()
         {
             var locations = await _context.Place.Include(p => p.Location)
@@ -79,8 +79,8 @@ namespace ADSBackend.Controllers
             return locations;
         }
 
-        // GET: api/ActivityName
-        [HttpGet("Activity")]
+        // GET: api/ActivityNames
+        [HttpGet("Activities")]
         public async Task<List<Place>> GetActivities()
         {
             var activities = await _context.Place.Include(p => p.Activity)
@@ -90,8 +90,8 @@ namespace ADSBackend.Controllers
             return activities;
         }
 
-        // GET: api/ActivityDescription
-        [HttpGet("Description")]
+        // GET: api/ActivityDescriptions
+        [HttpGet("Descriptions")]
         public async Task<List<Place>> GetDescriptions()
         {
             var descriptions = await _context.Place.Include(p => p.Description)
@@ -101,8 +101,8 @@ namespace ADSBackend.Controllers
             return descriptions;
         }
 
-        // GET: api/LocationAddress
-        [HttpGet("Address")]
+        // GET: api/LocationAddresses
+        [HttpGet("Addresses")]
         public async Task<List<Place>> GetAddresses()
         {
             var addresses = await _context.Place.Include(p => p.Address)
@@ -123,8 +123,8 @@ namespace ADSBackend.Controllers
             return hours;
         }
 
-        // GET: api/ActivityCost
-        [HttpGet("Cost")]
+        // GET: api/ActivityCosts
+        [HttpGet("Costs")]
         public async Task<List<Place>> GetCosts()
         {
             var costs = await _context.Place.Include(p => p.Cost)
@@ -134,8 +134,8 @@ namespace ADSBackend.Controllers
             return costs;
         }
 
-        // GET: api/LocationLatitude
-        [HttpGet("Latitude")]
+        // GET: api/LocationLatitudes
+        [HttpGet("Latitudes")]
         public async Task<List<Place>> GetLatitudes()
         {
             var latitudes = await _context.Place.Include(p => p.Latitude)
@@ -145,8 +145,8 @@ namespace ADSBackend.Controllers
             return latitudes;
         }
 
-        // GET: api/LocationLongitude
-        [HttpGet("Longitude")]
+        // GET: api/LocationLongitudes
+        [HttpGet("Longitudes")]
         public async Task<List<Place>> GetLongitudes()
         {
             var longitudes = await _context.Place.Include(p => p.Longitude)
@@ -156,8 +156,8 @@ namespace ADSBackend.Controllers
             return longitudes;
         }
 
-        // GET: api/LocationURL
-        [HttpGet("Location URL")]
+        // GET: api/LocationURLs
+        [HttpGet("Location URLs")]
         public async Task<List<Place>> GetLocationURLs()
         {
             var locationURLs = await _context.Place.Include(p => p.URL)
@@ -167,8 +167,8 @@ namespace ADSBackend.Controllers
             return locationURLs;
         }
 
-        // GET: api/ImageURL
-        [HttpGet("Image URL")]
+        // GET: api/ImageURLs
+        [HttpGet("Image URLs")]
         public async Task<List<Place>> GetImageURLs()
         {
             var imageURLs = await _context.Place.Include(p => p.Image)
