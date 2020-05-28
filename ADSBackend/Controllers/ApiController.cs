@@ -57,7 +57,7 @@ namespace ADSBackend.Controllers
             return places;
         }
 
-        // GET: api/Places/Type
+        // GET: api/PlaceType
         [HttpGet("PlaceType")]
         public async Task<List<Place>> GetPlaceTypes()
         {
@@ -68,7 +68,7 @@ namespace ADSBackend.Controllers
             return placeTypes;
         }
 
-        // GET: api/Places/LocationName
+        // GET: api/LocationName
         [HttpGet("Location")]
         public async Task<List<Place>> GetLocations()
         {
@@ -79,7 +79,7 @@ namespace ADSBackend.Controllers
             return locations;
         }
 
-        // GET: api/Places/ActivityName
+        // GET: api/ActivityName
         [HttpGet("Activity")]
         public async Task<List<Place>> GetActivities()
         {
@@ -90,7 +90,7 @@ namespace ADSBackend.Controllers
             return activities;
         }
 
-        // GET: api/Places/ActivityDescription
+        // GET: api/ActivityDescription
         [HttpGet("Description")]
         public async Task<List<Place>> GetDescriptions()
         {
@@ -101,7 +101,7 @@ namespace ADSBackend.Controllers
             return descriptions;
         }
 
-        // GET: api/Places/LocationAddress
+        // GET: api/LocationAddress
         [HttpGet("Address")]
         public async Task<List<Place>> GetAddresses()
         {
@@ -112,7 +112,7 @@ namespace ADSBackend.Controllers
             return addresses;
         }
 
-        // GET: api/Places/HoursofOperation
+        // GET: api/HoursofOperation
         [HttpGet("Hours")]
         public async Task<List<Place>> GetHours()
         {
@@ -123,7 +123,7 @@ namespace ADSBackend.Controllers
             return hours;
         }
 
-        // GET: api/Places/ActivityCost
+        // GET: api/ActivityCost
         [HttpGet("Cost")]
         public async Task<List<Place>> GetCosts()
         {
@@ -134,7 +134,7 @@ namespace ADSBackend.Controllers
             return costs;
         }
 
-        // GET: api/Places/LocationLatitude
+        // GET: api/LocationLatitude
         [HttpGet("Latitude")]
         public async Task<List<Place>> GetLatitudes()
         {
@@ -145,7 +145,7 @@ namespace ADSBackend.Controllers
             return latitudes;
         }
 
-        // GET: api/Places/LocationLongitude
+        // GET: api/LocationLongitude
         [HttpGet("Longitude")]
         public async Task<List<Place>> GetLongitudes()
         {
@@ -156,7 +156,7 @@ namespace ADSBackend.Controllers
             return longitudes;
         }
 
-        // GET: api/Places/LocationURL
+        // GET: api/LocationURL
         [HttpGet("Location URL")]
         public async Task<List<Place>> GetLocationURLs()
         {
@@ -167,7 +167,7 @@ namespace ADSBackend.Controllers
             return locationURLs;
         }
 
-        // GET: api/Places/ImageURL
+        // GET: api/ImageURL
         [HttpGet("Image URL")]
         public async Task<List<Place>> GetImageURLs()
         {
